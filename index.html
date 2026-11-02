@@ -39,6 +39,13 @@
   </script>
 
   <style>
+    /* Prevent horizontal scroll on mobile */
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100% !important;
+      position: relative;
+    }
     /* Smooth image transitions */
     .img-zoom {
       transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
@@ -56,29 +63,29 @@
     }
   </style>
 </head>
-<body class="bg-[#EFF1E7] text-[#1B2316] font-sans antialiased selection:bg-fnp-olive selection:text-white">
+<body class="bg-[#EFF1E7] text-[#1B2316] font-sans antialiased selection:bg-fnp-olive selection:text-white overflow-x-hidden w-full">
 
-  <!-- ================= TOP HEADER (PIXEL-PERFECT FNP RITZ HEADER) ================= -->
-  <header class="sticky top-0 z-50 bg-[#121720]/95 backdrop-blur-md border-b border-white/10 text-white transition-all">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+  <!-- ================= TOP HEADER (MOBILE RESPONSIVE & PIXEL-PERFECT) ================= -->
+  <header class="sticky top-0 z-50 bg-[#121720]/95 backdrop-blur-md border-b border-white/10 text-white w-full">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex justify-between items-center w-full">
       
-      <!-- Logo: The Grand Rajwada (Single-line, no awkward wrapping) -->
-      <a href="#" class="flex items-center gap-3 group shrink-0">
-        <div class="w-10 h-10 rounded-full border border-fnp-goldAccent/50 flex items-center justify-center bg-white/5 text-fnp-goldAccent text-lg font-serif shadow-inner group-hover:border-fnp-goldAccent transition-colors">
+      <!-- Logo: The Grand Rajwada (Adaptive font size for mobile) -->
+      <a href="#" class="flex items-center gap-2 sm:gap-3 group shrink min-w-0">
+        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-fnp-goldAccent/50 flex items-center justify-center bg-white/5 text-fnp-goldAccent text-sm sm:text-lg font-serif shadow-inner group-hover:border-fnp-goldAccent transition-colors shrink-0">
           👑
         </div>
-        <div class="flex flex-col">
-          <span class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-white group-hover:text-fnp-goldAccent transition-colors leading-tight whitespace-nowrap">
+        <div class="flex flex-col truncate">
+          <span class="font-serif text-sm sm:text-xl lg:text-2xl font-bold tracking-wider text-white group-hover:text-fnp-goldAccent transition-colors leading-tight truncate">
             THE GRAND RAJWADA
           </span>
-          <span class="text-[9px] tracking-[0.25em] text-[#C5A880] uppercase font-semibold whitespace-nowrap">
+          <span class="text-[8px] sm:text-[9px] tracking-[0.2em] text-[#C5A880] uppercase font-semibold truncate hidden xs:block">
             LUXURY BANQUET & RESORT • DELHI NCR
           </span>
         </div>
       </a>
 
-      <!-- Center Navigation Links (Clean & Smooth like Image 1) -->
-      <nav class="hidden lg:flex items-center space-x-8 text-sm font-normal text-white/85">
+      <!-- Center Navigation Links (Hidden on mobile, visible on desktop) -->
+      <nav class="hidden lg:flex items-center space-x-8 text-sm font-normal text-white/85 shrink-0">
         <a href="#visual-journey" class="hover:text-white transition-colors duration-200 flex items-center gap-1">
           Venues <span class="text-[10px] opacity-70">▾</span>
         </a>
@@ -96,46 +103,46 @@
         </a>
       </nav>
 
-      <!-- Right Action Pill Buttons (Identical to Image 1) -->
-      <div class="flex items-center space-x-3 shrink-0">
-        <!-- Call Us Pill (Glassmorphism + Olive Circle Badge with Phone SVG) -->
+      <!-- Right Action Pill Buttons (Mobile Optimized) -->
+      <div class="flex items-center space-x-2 sm:space-x-3 shrink-0">
+        <!-- Call Us Pill: Mobile icon only, full pill on sm+ -->
         <a href="tel:+919570151834" 
-           class="group flex items-center gap-3 bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 hover:border-white/40 pl-1.5 pr-4 py-1.5 rounded-full text-white transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5">
+           class="group flex items-center gap-2 sm:gap-3 bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 hover:border-white/40 p-1 sm:pl-1.5 sm:pr-4 sm:py-1.5 rounded-full text-white transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5">
           <!-- Olive circle icon badge -->
           <div class="w-8 h-8 rounded-full bg-[#6B8E4E] group-hover:bg-[#5A7A3F] flex items-center justify-center text-white transition-colors duration-300 shadow-sm shrink-0">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
               <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
             </svg>
           </div>
-          <div class="text-left leading-none">
+          <!-- Number hidden on mobile, shown on tablet/desktop -->
+          <div class="text-left leading-none hidden sm:block">
             <span class="block text-[8px] uppercase tracking-wider text-white/70 font-semibold mb-1">CALL US</span>
             <span class="text-xs font-bold tracking-wide text-white">+91 9570151834</span>
           </div>
         </a>
 
-        <!-- Enquire Now Pill (Olive Green with Calendar SVG Icon) -->
+        <!-- Enquire Now Pill (Olive Green) -->
         <button onclick="openModal()" 
-           class="flex items-center gap-2 bg-[#6B8E4E] hover:bg-[#5A7A3F] text-white px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95 shrink-0">
-          <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+           class="flex items-center gap-1.5 sm:gap-2 bg-[#6B8E4E] hover:bg-[#5A7A3F] text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95 shrink-0">
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
             <line x1="16" y1="2" x2="16" y2="6"></line>
             <line x1="8" y1="2" x2="8" y2="6"></line>
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
-          <span>Enquire Now</span>
+          <span class="text-[11px] sm:text-xs">Enquire Now</span>
         </button>
       </div>
     </div>
   </header>
 
   <!-- ================= HERO SECTION (THE GRAND RAJWADA - DELHI NCR) ================= -->
-  <section class="relative min-h-[640px] lg:min-h-[720px] flex items-end pb-16 sm:pb-20 bg-[#0B0E13] text-white overflow-hidden">
-    <!-- Grand Background Image (Amber Arches & Chandeliers of The Grand Rajwada) -->
-    <div class="absolute inset-0 z-0">
+  <section class="relative min-h-[580px] sm:min-h-[640px] lg:min-h-[720px] flex items-end pb-12 sm:pb-20 bg-[#0B0E13] text-white overflow-hidden w-full">
+    <!-- Grand Background Image -->
+    <div class="absolute inset-0 z-0 w-full h-full">
       <img src="https://images.unsplash.com/photo-1780593116478-c46838f86523?auto=format&fit=crop&w=2200&q=90" 
            alt="The Grand Rajwada Luxury Venue Delhi NCR" 
            class="w-full h-full object-cover filter brightness-[0.76] contrast-105">
-      <!-- Vignette and Gradient Overlay -->
       <div class="absolute inset-0 bg-gradient-to-t from-[#0C1017] via-[#0C1017]/45 to-black/25"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-[#0C1017]/85 via-transparent to-[#0C1017]/40"></div>
     </div>
@@ -143,38 +150,38 @@
     <!-- Content -->
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
       <!-- Badges -->
-      <div class="flex flex-wrap items-center gap-3 mb-4">
-        <div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-xs font-semibold text-gray-200 tracking-wider transition-all duration-300 hover:bg-black/70 cursor-default">
+      <div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
+        <div class="flex items-center gap-1.5 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-[10px] sm:text-xs font-semibold text-gray-200 tracking-wider transition-all duration-300">
           <span class="text-fnp-goldAccent">✦</span> BEST LUXURY VENUE
         </div>
-        <div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-xs font-semibold text-gray-200 tracking-wider transition-all duration-300 hover:bg-black/70 cursor-default">
+        <div class="flex items-center gap-1.5 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-[10px] sm:text-xs font-semibold text-gray-200 tracking-wider transition-all duration-300">
           <span class="text-[#72B451]">🛡️</span> VERIFIED LUXURY VENUE
         </div>
       </div>
 
-      <!-- Main Title: The Grand Rajwada -->
-      <h1 class="font-serif text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-white mb-3 drop-shadow-md">
+      <!-- Main Title: The Grand Rajwada (Responsive font size for mobile) -->
+      <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-3 drop-shadow-md break-words">
         The Grand Rajwada
       </h1>
 
       <!-- Address in Delhi NCR -->
-      <div class="flex items-center gap-2 text-sm sm:text-base text-gray-200 font-light mb-8 max-w-3xl drop-shadow">
-        <span class="text-fnp-goldAccent text-lg">📍</span>
+      <div class="flex items-start sm:items-center gap-2 text-xs sm:text-base text-gray-200 font-light mb-6 sm:mb-8 max-w-3xl drop-shadow">
+        <span class="text-fnp-goldAccent text-base sm:text-lg shrink-0">📍</span>
         <span class="tracking-wide">Ambience Golf Drive, NH - 8, Behind The Leela Hotel, DLF Phase 3, Gurugram, Delhi NCR, 122002</span>
       </div>
 
       <!-- Action Buttons with Smooth Interactions -->
-      <div class="flex flex-wrap items-center gap-4">
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
         <!-- View Photos Button -->
         <a href="#visual-journey" 
-           class="flex items-center gap-2.5 bg-[#6B8E4E] hover:bg-[#5A7A3F] text-white px-7 py-3.5 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-95">
+           class="flex items-center justify-center gap-2.5 bg-[#6B8E4E] hover:bg-[#5A7A3F] text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-95">
           <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
           <span>View photos</span>
         </a>
 
         <!-- Call Now Button -->
         <a href="tel:+919570151834" 
-           class="flex items-center gap-2.5 bg-black/40 hover:bg-white/15 backdrop-blur-md border border-white/30 hover:border-white/60 text-white px-7 py-3.5 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95">
+           class="flex items-center justify-center gap-2.5 bg-black/40 hover:bg-white/15 backdrop-blur-md border border-white/30 hover:border-white/60 text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
           <span>Call: 9570151834</span>
         </a>
@@ -182,7 +189,7 @@
         <!-- WhatsApp Inquiry Button -->
         <a href="https://wa.me/919570151834?text=Hello!%20I%20am%20inquiring%20about%20booking%20dates%20for%20The%20Grand%20Rajwada%20Delhi%20NCR." 
            target="_blank"
-           class="flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20BA59] text-white px-7 py-3.5 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-95">
+           class="flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20BA59] text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-95">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
           <span>WhatsApp Inquiry</span>
         </a>
@@ -213,7 +220,7 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
         
         <!-- Large Left Hero Photo (Purple Ambient Ballroom with Gold Chairs) -->
-        <div class="md:col-span-6 img-card rounded-2xl overflow-hidden shadow-sm relative h-[420px] md:h-[530px]">
+        <div class="md:col-span-6 img-card rounded-2xl overflow-hidden shadow-sm relative h-64 sm:h-[420px] md:h-[530px]">
           <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=85" 
                alt="The Grand Rajwada Purple Ballroom" 
                class="w-full h-full object-cover img-zoom">
